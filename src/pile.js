@@ -3,6 +3,8 @@ var _ = require('lodash');
 var Card = require('./card');
 
 var Pile = (function() {
+    var cards;
+
     function Pile(maxCardNumber) {
         cards = _.map(_.range(maxCardNumber), function (i) {
             return new Card(i + 1);
