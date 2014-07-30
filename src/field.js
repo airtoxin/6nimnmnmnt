@@ -4,14 +4,14 @@ var Row = require('./row');
 
 var Field = (function() {
     var instance;
-    var rows = [];
+    var rows;
 
     function Field(setupCards) {
         if (instance) return instance;
         instance = this;
 
-        _.each(setupCards, function (card) {
-        	rows.push(new Row(card));
+        rows = _.map(setupCards, function (card) {
+            return new Row(card);
         });
 
         return instance;

@@ -1,14 +1,17 @@
 var Row = (function() {
-    function Row(card) {
-    	this.threthold = 6;
-        this.row = [card];
+    var threthold = 6;
+    var row;
+
+    function Row() {
+        row = [];
     };
 
     Row.prototype.addCard = function(card) {
-        this.row.push(card);
-        if (this.row.length !== this.threthold) return [];
-        var penaltyCards = this.row.slice(0, this.threthold - 1);
-        this.row = [this.row[this.threthold - 1]];
+        row.push(card);
+        if (row.length !== threthold) return null;
+
+        var penaltyCards = row.slice(0, threthold - 1);
+        row = [row[threthold - 1]];
         return penaltyCards;
     };
 
