@@ -1,16 +1,20 @@
 var _ = require('lodash');
 
-var Row = require('../src/row');
+var Row = require('./row');
 
 var Field = (function() {
-    function Field(setupCards) {
-    	var self = this;
-        // singleton
+    var instance;
+    var rows = [];
 
-        this.rows = [];
+    function Field(setupCards) {
+        if (instance) return instance;
+        instance = this;
+
         _.each(setupCards, function (card) {
-        	self.rows.push(new Row(card));
+        	rows.push(new Row(card));
         });
+
+        return instance;
     };
 
     Field.prototype.move = function() {
