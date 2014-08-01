@@ -17,8 +17,14 @@ var Field = (function() {
         return instance;
     };
 
-    Field.prototype.move = function() {
-        // do something
+    getRowsValue = function () {
+        return _.map(rows, function (row) {
+            return row.getValue();
+        });
+    };
+
+    Field.prototype.setCard = function (card) {
+        console.log("@rows:", rows);
     };
 
     return Field;

@@ -15,6 +15,12 @@ var Row = (function() {
         return penaltyCards;
     };
 
+    Row.prototype.getValue = function () {
+        if (row.length === 0) return null;
+        var lastCard = row[row.length - 1];
+        return lastCard.number;
+    };
+
     return Row;
 })();
 

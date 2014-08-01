@@ -33,4 +33,21 @@ describe('row', function () {
 			done();
 		});
 	});
+	describe('getValue', function () {
+		var row;
+		beforeEach(function (done) {
+			row = new Row();
+			done();
+		});
+
+		it('ok', function (done) {
+			row.addCard(new Card(246));
+			assert.equal(row.getValue(), 246);
+			done();
+		});
+		it('0 length', function (done) {
+			assert.equal(row.getValue(), null);
+			done();
+		})
+	});
 });
